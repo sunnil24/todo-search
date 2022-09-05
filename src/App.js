@@ -27,14 +27,14 @@ export default function App() {
   };
 
   return (
-    <div>
+    <div style={{ width: 'min(400px, calc(100% - 2rem))', margin: '0 auto' }}>
       <input
         type="search"
         placeholder="Search"
-        style={{ padding: '0.5rem 1rem', margin: '1rem 1.5rem' }}
+        style={{ padding: '0.5rem 1rem', margin: '1rem 0', width: '100%' }}
         onChange={handleSearch}
       />
-      <ol>
+      <ol style={{ padding: 0, marginLeft: '1rem' }}>
         {paginatedData.map(({ id, title, completed }) => (
           <li
             key={id}
