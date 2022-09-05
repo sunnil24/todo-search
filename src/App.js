@@ -34,22 +34,26 @@ export default function App() {
         style={{ padding: '0.5rem 1rem', margin: '1rem 0', width: '100%' }}
         onChange={handleSearch}
       />
-      <ol style={{ padding: 0, marginLeft: '1rem' }}>
-        {paginatedData.map(({ id, title, completed }) => (
-          <li
-            key={id}
-            style={{
-              color: completed ? 'green' : '',
-              textDecoration: completed ? 'line-through' : '',
-              fontFamily: 'sans-serif',
-              lineHeight: 1.5,
-              fontSize: '14px',
-            }}
-          >
-            {title}
-          </li>
-        ))}
-      </ol>
+      {paginatedData[0] ? (
+        <ol style={{ padding: 0, marginLeft: '1rem' }}>
+          {paginatedData.map(({ id, title, completed }) => (
+            <li
+              key={id}
+              style={{
+                color: completed ? 'green' : '',
+                textDecoration: completed ? 'line-through' : '',
+                fontFamily: 'sans-serif',
+                lineHeight: 1.5,
+                fontSize: '14px',
+              }}
+            >
+              {title}
+            </li>
+          ))}
+        </ol>
+      ) : (
+        <p style={{ color: 'red', textAlign: 'center' }}>Nothing Found!</p>
+      )}
     </div>
   );
 }
